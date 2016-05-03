@@ -5,7 +5,7 @@ var app = new express();
 var port = 3000;
 
 app.get("/", function(req, res) {
-  res.sendFile('index.html', {root: './client/public/'});
+  res.sendFile('index.html', {root: './client/'});
 });
 
 app.get("/posts", function(req, res) {
@@ -31,7 +31,7 @@ app.post("/posts", function(req, res){
   });
 });
 
-app.use(express.static(__dirname + '/../client/public'));
+app.use(express.static(__dirname + '/../client'));
 
 app.listen(port, function(error) {
   if (error) {
