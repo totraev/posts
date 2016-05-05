@@ -8,5 +8,5 @@ app.config(function($routeProvider) {
       templateUrl: 'app/post/post.html',
       controller: 'PostCtrl'
     })
-    .otherwise('/phones');
+    .otherwise('/posts');
 });
