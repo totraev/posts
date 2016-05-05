@@ -1,8 +1,14 @@
 var express = require('express');
 var fs = require('fs');
+var bodyParser = require('body-parser');
 
 var app = new express();
 var port = 3000;
+
+app.use( bodyParser.json() );
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 app.get("/", function(req, res) {
   res.sendFile('index.html', {root: './client/'});
@@ -25,9 +31,17 @@ app.get("/posts/:id", function(req, res){
 });
 
 app.post("/posts", function(req, res){
+  var post = req.body;
+
   fs.readFile(__dirname + '/posts.json', function(err, data){
     if (err) throw err;
     posts = JSON.parse(data);
+    posts.push(post);
+
+    fs.writeFile(__dirname + '/posts.json', JSON.stringify(posts, null, 4), function(err){
+      console.log('post was added!');
+      res.end();
+    })
   });
 });
 
