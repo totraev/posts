@@ -8,5 +8,9 @@ app.config(function($routeProvider) {
       templateUrl: 'app/post/post.html',
       controller: 'PostCtrl'
     })
+    .when('/new',{
+      templateUrl: 'app/create/create.html',
+      controller: 'CreatePostCtrl'
+    })
     .otherwise('/posts');
 });
