@@ -41,7 +41,34 @@ app.post("/posts", function(req, res){
     fs.writeFile(__dirname + '/posts.json', JSON.stringify(posts, null, 4), function(err){
       console.log('post was added!');
       res.end();
-    })
+    });
+  });
+});
+
+app.put("/posts/:id", function(req, res){
+  post = req.body;
+  fs.readFile(__dirname + '/posts.json', function(err, data){
+    if (err) throw err;
+    posts = JSON.parse(data);
+    posts[req.params.id] = post;
+
+    fs.writeFile(__dirname + '/posts.json', JSON.stringify(posts, null, 4), function(err){
+      console.log('post was updated!');
+      res.end();
+    });
+  });
+});
+
+app.delete("/posts/:id", function(req, res){
+  fs.readFile(__dirname + '/posts.json', function(err, data){
+    if (err) throw err;
+    posts = JSON.parse(data);
+    posts.splice(req.params.id, 1);
+
+    fs.writeFile(__dirname + '/posts.json', JSON.stringify(posts, null, 4), function(err){
+      console.log('post was deleted!');
+      res.end();
+    });
   });
 });
 
