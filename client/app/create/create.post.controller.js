@@ -1,4 +1,4 @@
-app.controller("CreatePostCtrl", function($scope, $http){
+app.controller("CreatePostCtrl", function($scope, $http, $location){
   $scope.post = {
     title:"",
     author:"",
@@ -8,7 +8,7 @@ app.controller("CreatePostCtrl", function($scope, $http){
 
   $scope.func = function(){
     $http.post("/posts", $scope.post).then(function(){
-      console.log("Yeees!");
+      $location.path( "/posts" );
     });
   };
 })

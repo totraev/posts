@@ -12,5 +12,9 @@ app.config(function($routeProvider) {
       templateUrl: 'app/create/create.html',
       controller: 'CreatePostCtrl'
     })
+    .when('/posts/:id/edit',{
+      templateUrl: 'app/edit/edit.html',
+      controller: 'EditPostCtrl'
+    })
     .otherwise('/posts');
 });

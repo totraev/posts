@@ -1,44 +1,8 @@
 [
     {
-        "title": "test title",
-        "author": "test author",
-        "text": "test text",
-        "date": "test date"
-    },
-    {
-        "title": "test title 1",
-        "author": "test author 1",
-        "text": "test text 1",
-        "date": "test date 1"
-    },
-    {
-        "title": "test title 2",
+        "title": "test title 2 hhh",
         "author": "test author 2",
         "text": "test text 2",
         "date": "test date 2"
-    },
-    {
-        "title": "",
-        "author": "",
-        "date": "",
-        "text": ""
-    },
-    {
-        "title": "hjdhlk",
-        "author": "guispj;lk",
-        "date": "uho2425678wer",
-        "text": "dfghjklmnbvfdertyuikmnbv"
-    },
-    {
-        "title": "hjdhlk",
-        "author": "guispj;lk",
-        "date": "uho2425678wer",
-        "text": "dfghjklmnbvfdertyuikmnbv"
-    },
-    {
-        "title": "hjdhlk",
-        "author": "guispj;lk",
-        "date": "uho2425678wer",
-        "text": "dfghjklmnbvfdertyuikmnbv"
     }
 ]
