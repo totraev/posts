@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-xs-4">
+    <form action="">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input id="title" type="text" ng-model="post.title" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="author">Author</label>
+        <input id="author" type="text" ng-model="post.author" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input id="date" type="text" ng-model="post.date" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="text">Text</label>
+        <textarea id="text" name="name" rows="8" cols="40" ng-model="post.text" class="form-control" ></textarea>
+      </div>
+    </form>
+
+    <button class="btn" ng-click="func()">Submit</button>
+  </div>
+</div>
