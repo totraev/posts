@@ -14,58 +14,58 @@ app.get("/", function(req, res) {
   res.sendFile('index.html', {root: './client/'});
 });
 
-app.get("/posts", function(req, res) {
-  fs.readFile(__dirname + '/posts.json', function(err, data){
+app.get("/movies", function(req, res) {
+  fs.readFile(__dirname + '/movies.json', function(err, data){
     if (err) throw err;
-    posts = JSON.parse(data);
-    res.json(posts);
+    movies = JSON.parse(data);    
+    res.json(movies);
   });
 });
 
-app.get("/posts/:id", function(req, res){
-  fs.readFile(__dirname + '/posts.json', function(err, data){
+app.get("/movies/:id", function(req, res){
+  fs.readFile(__dirname + '/movies.json', function(err, data){
     if (err) throw err;
-    posts = JSON.parse(data);
-    res.json(posts[req.params.id]);
+    movies = JSON.parse(data);
+    res.json(movies[req.params.id]);
   });
 });
 
-app.post("/posts", function(req, res){
+app.post("/movies", function(req, res){
   var post = req.body;
 
-  fs.readFile(__dirname + '/posts.json', function(err, data){
+  fs.readFile(__dirname + '/movies.json', function(err, data){
     if (err) throw err;
-    posts = JSON.parse(data);
-    posts.push(post);
+    movies = JSON.parse(data);
+    movies.push(post);
 
-    fs.writeFile(__dirname + '/posts.json', JSON.stringify(posts, null, 4), function(err){
+    fs.writeFile(__dirname + '/movies.json', JSON.stringify(movies, null, 4), function(err){
       console.log('post was added!');
       res.end();
     });
   });
 });
 
-app.put("/posts/:id", function(req, res){
+app.put("/movies/:id", function(req, res){
   post = req.body;
-  fs.readFile(__dirname + '/posts.json', function(err, data){
+  fs.readFile(__dirname + '/movies.json', function(err, data){
     if (err) throw err;
-    posts = JSON.parse(data);
-    posts[req.params.id] = post;
+    movies = JSON.parse(data);
+    movies[req.params.id] = post;
 
-    fs.writeFile(__dirname + '/posts.json', JSON.stringify(posts, null, 4), function(err){
+    fs.writeFile(__dirname + '/movies.json', JSON.stringify(movies, null, 4), function(err){
       console.log('post was updated!');
       res.end();
     });
   });
 });
 
-app.delete("/posts/:id", function(req, res){
-  fs.readFile(__dirname + '/posts.json', function(err, data){
+app.delete("/movies/:id", function(req, res){
+  fs.readFile(__dirname + '/movies.json', function(err, data){
     if (err) throw err;
-    posts = JSON.parse(data);
-    posts.splice(req.params.id, 1);
+    movies = JSON.parse(data);
+    movies.splice(req.params.id, 1);
 
-    fs.writeFile(__dirname + '/posts.json', JSON.stringify(posts, null, 4), function(err){
+    fs.writeFile(__dirname + '/movies.json', JSON.stringify(movies, null, 4), function(err){
       console.log('post was deleted!');
       res.end();
     });
