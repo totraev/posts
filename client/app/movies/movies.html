@@ -2,13 +2,13 @@
   <div class="container">
 
     <div class="input-group">
-      <input type="text" class="form-control" placeholder="Enter text">
+      <input type="text" class="form-control" placeholder="Enter text" ng-model="filterInput">
       <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Search</button>
+        <button class="btn btn-default" type="button" ng-click="onFilter()">Search</button>
       </span>
     </div>
 
-    <br>  
+    <br>
   </div>
 </div>
 
@@ -19,36 +19,13 @@
     <div class="pull-left">
       <h2>{{movies.length}} movies</h2>
     </div>
-
-    <div class="pull-right">
-    <div class="btn-group" align=right>
-      <a  class="btn  dropdown-toggle" ng-click="open_order()">
-        Order by <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu" style="display:block" ng-show="order.open">
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-        <li role="separator" class="divider"></li>
-        <li><a href="#">Separated link</a></li>
-      </ul>
-     </div>
-    </div>
   </div>
 
   <div class="row">
-    <div class="col-xs-2"  ng-repeat="movie in movies">
-      <div class="movies-item">
-        <h3>{{movie.name}}</h3>
-        <h4>{{movie.year}}</h4>
-
-        <div class="janr">
-          <span ng-repeat="genre in movie.array_genres track by $index"><span ng-if="$index != 0">, </span>{{genre}}</span>
-        </div>
-        <div class="country">
-          <span ng-repeat="country in movie.array_countries">{{country}}</span>
-        </div>
-      </div>
+    <div>
+      <pre>
+        {{ movies | filter : filterString | json }}
+      </pre>
     </div>
   </div>
 </div>
