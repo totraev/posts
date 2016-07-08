@@ -24,7 +24,7 @@
   <div class="row">
     <div>
       <pre>
-        {{ movies | filter : filterString | json }}
+        {{ movies | evenItems: 5 | json }}
       </pre>
     </div>
   </div>
