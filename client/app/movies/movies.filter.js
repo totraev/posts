@@ -1,6 +1,5 @@
 app.filter("evenItems", function(){
-  return function(item, arg1){
-    console.log(item);
+  return function(item, arg1){    
     if(item instanceof Array){
       var even = [];
       for (var i = 0; i < item.length; i++) {

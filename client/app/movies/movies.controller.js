@@ -1,4 +1,4 @@
-app.controller("MoviesCtrl", function($scope, $http){
+app.controller("MoviesCtrl", function($scope, TestService){
   $scope.movies = [];
   $scope.filterString = '';
   $scope.filterInput = '';
@@ -8,9 +8,9 @@ app.controller("MoviesCtrl", function($scope, $http){
     $scope.filterString = $scope.filterInput;
   }
 
-  $http.get("/movies").then(function(data){
-    $scope.movies = data.data;
-  });
+  TestService.getMovies(function(data){
+    $scope.movies = data;
+  })
 
   $scope.order = {
     open: false
